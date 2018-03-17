@@ -12,6 +12,7 @@ let config = require ('./config/globals');
 
 var index = require('./controllers/index');
 var users = require('./controllers/users');
+let apples = require('./controllers/apples');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/apples', apples);
 
 //DB Connection
 mongoose.connect(config.db);
