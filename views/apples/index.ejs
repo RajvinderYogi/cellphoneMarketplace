@@ -1,5 +1,26 @@
 <% include ../shared/header.ejs %>
 
 <h1 class="modal-header"><%= title %></h1>
-<p class="jumbotron">Will show the data soon.....</p>
+<a href="../apples/addphone">Add a new Phone here</a>
+<div class="jumbotron">
+
+<table class="table table-hover table-dark">
+    <tr class="bg-info">
+        <th>Model</th>
+        <th>Color</th>
+        <th>New/Used</th>
+        <th>Price</th>
+        <th>Action Buttons</th>
+    </tr>
+    <% for(var i=0; i<apples.length; i++) { %>
+    <tr class="bg-danger">
+        <td><%= apples[i].model %></td>
+        <td><%= apples[i].color %></td>
+        <td><%= apples[i].usage %></td>
+        <td><%= apples[i].price %></td>
+        <td><a href="/apples/delete/<%= apples[i]._id%>" class="btn btn-primary col-md-4" onclick="return confirm('Are you sure want to delete this phone from list?')"> Delete</a></td>
+    </tr>
+    <%}%>
+</table>
+</div>
 <% include ../shared/footer.ejs %>

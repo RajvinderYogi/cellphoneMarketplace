@@ -14,7 +14,7 @@ var index = require('./controllers/index');
 var users = require('./controllers/users');
 let apples = require('./controllers/apples');
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
