@@ -1,4 +1,17 @@
 <% include ../shared/header.ejs %>
-<h1>Samsung Phones</h1>
-<p class="jumbotron">Will show some data very soon</p>
+
+<h1 class="modal-header"><%= title %></h1>
+<div class="jumbotron row">
+    <% for(var i=0; i<samsungs.length; i++) { %>
+    <div class="align-content-md-start col-lg-4">
+        <p><%= samsungs[i].model %> |
+            <%= samsungs[i].color %> |
+            <%= samsungs[i].usage %> |
+            <%= samsungs[i].price %></p>
+        <a href="/samsungs/edit/<%= samsungs[i]._id%>" class="btn btn-info col-md-2">Edit</a>
+        <a href="/samsungs/delete/<%= samsungs[i]._id%>" class="btn btn-danger col-md-3" onclick="return confirm('Are you sure want to delete this phone from list?')"> Delete</a>
+    </div>
+    <%}%>
+</div>
+<a href="/samsungs/addPhone" class="btn btn-warning col-md-3">Add a new Phone here</a>
 <% include ../shared/footer.ejs %>
