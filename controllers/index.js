@@ -28,4 +28,30 @@ router.post('/register', function (req, res, next) {
     });
 });
 
+//GET: /login
+
+router.get('/signin', (req, res, next)=>{
+
+    let messages = req.session.messages || [];
+
+    res.render('signin', {
+        title:'Sign in Page',
+        messages: messages
+    });
+});
+
+//POST: /SignIn
+router.post('/signin', passport.authenticate('local',{
+    successRedirect: '/apples',
+    failureRedirect: '/signin',
+    failureMessage:'Wrong Credentials'
+}));
+
+//GET: /signout
+router.get('/signout', (req, res, next)=>{
+    req.session.messages = [];
+    req.logout();
+    res.redirect('/')
+});
+
 module.exports = router;

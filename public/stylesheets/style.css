@@ -8,5 +8,12 @@ a {
 }
 form {
   margin: 0 auto;
-  width:250px;
+  width:350px;
+}
+.msg{
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
 }

@@ -4,14 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-let passport = require('passport');
-const session = require('express-session');
-const localStrategy = require('passport-local').Strategy;
+
 
 //added references
 let mongoose =require ('mongoose');
 
 let config = require ('./config/globals');
+
+let passport = require('passport');
+const session = require('express-session');
+const localStrategy = require('passport-local').Strategy;
 
 var index = require('./controllers/index');
 let apples = require('./controllers/apples');
@@ -47,6 +49,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+const User = require('./models/user');
+
+passport.use(User.createStrategy());
+
+// session management for users
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use('/', index);
 app.use('/apples', apples);
