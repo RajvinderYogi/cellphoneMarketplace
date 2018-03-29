@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6c5d41f-9d91-4767-bf29-ee3eaa1c22e9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ReadMe.md" afterPath="$PROJECT_DIR$/ReadMe.md" />
-      <change beforePath="$PROJECT_DIR$/controllers/apples.js" afterPath="$PROJECT_DIR$/controllers/apples.js" />
-      <change beforePath="$PROJECT_DIR$/views/apples/index.ejs" afterPath="$PROJECT_DIR$/views/apples/index.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -292,12 +289,12 @@
       <workItem from="1521313392248" duration="19843000" />
       <workItem from="1521548999993" duration="810000" />
       <workItem from="1521552530469" duration="134000" />
-      <workItem from="1522292482140" duration="2879000" />
+      <workItem from="1522292482140" duration="3134000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23666000" />
+    <option name="totallyTimeSpent" value="23921000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
