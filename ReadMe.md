@@ -1,9 +1,7 @@
-<h1> Projects Porfolio- Assignment 1</h1>
-<h3> This website is built for Assignment-1(Advanced Server Side Scripting COMP 2106) at Georgian College</h3>
-<p>This website is about my projects that I have done so far. I would use this website as a portfolio to show the employers.</p>
-<p> This website consist of Five pages: <br>1. Home<br>2. About<br>3. Services<br>3. Portfolio<br>2. Contact
-<p>I am using CSS template from <a href="http://www.free-css.com/free-css-templates/page220/optics">Optics free Templates</a> to make my portfolio wbsite attractive. I have used Stylesheets and Javascript files from the template. Followed some pattern of Theme to make website look good.I have used my own pictures and pictures from Unsplash too.</p>
-<p>I have used PHP for contact page. I tried my best to make a working contact page with the help of Node.JS, but I was unable to do so. I would make it possibly in near future.</p>
-<p> I have a Domain name (www.rajvinderyogi.com), but that does not support nodeJS. So, Deployed my websit on heroku. Please visit:<a href="https://portfolio-comp2106-rajvinder.herokuapp.com">Portfolio Website</a>.</p>
-
+<h1> Cell Phones Marketplace - Assignment 2</h1>
+<h3> This web application is built for Assignment-2(Advanced Server Side Scripting - COMP2106) at Georgian College</h3>
+<p>It includes the crud functionality for different cell phones from different brands.</p>
+<p>For now it has only one page working (apple phone page). But at the end result would include othe brands too. It would include registr, login and logout abilities.</p> 
+<p>Currently, I am using Bootstrap template v4.0 tofor this application, but i am looking forward to include my own css and if i can find a template to make website attractive.</p>
+<p>This website is deployed on herokuapp. Please visit:<a href="https://cellphonemarketplace.herokuapp.com/">Cell Phone Marketplace</a>, to view a live version of this website built so far.</p>
 <small> Made By - Rajvinder Yogi - 200353207 - COMP2106</small>

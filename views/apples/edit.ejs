@@ -1,0 +1,24 @@
+
+<% include ../shared/header.ejs%>
+<h1>Update your Ad:</h1>
+<form method="post">
+    <fieldset class="form-group">
+        <input name="model" id="model" value="<%= apples.model %>"required class="form-control col-md-12" />
+    </fieldset>
+    <fieldset class="form-group">
+        <input name="color" id="color" value="<%= apples.color%>" required class="form-control col-md-12" />
+    </fieldset>
+    <fieldset class="form-group">
+        <select class="custom-select col-md-12" name="usage">
+            <option disabled selected><%= apples.usage%></option>
+            <option value="new">New</option>
+            <option value="Used">Used</option>
+        </select>
+    </fieldset>
+    <fieldset class="form-group">
+        <input name="price" id="price" value="<%= apples.price%>" required  class="form-control col-md-12">
+    </fieldset>
+    <button class="offset-2 btn btn-primary">Save</button>
+</form>
+
+<% include ../shared/footer.ejs%>

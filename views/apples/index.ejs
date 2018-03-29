@@ -1,26 +1,17 @@
 <% include ../shared/header.ejs %>
 
 <h1 class="modal-header"><%= title %></h1>
-<a href="../apples/addphone">Add a new Phone here</a>
-<div class="jumbotron">
-
-<table class="table table-hover table-dark">
-    <tr class="bg-info">
-        <th>Model</th>
-        <th>Color</th>
-        <th>New/Used</th>
-        <th>Price</th>
-        <th>Action Buttons</th>
-    </tr>
+<div class="jumbotron row">
     <% for(var i=0; i<apples.length; i++) { %>
-    <tr class="bg-danger">
-        <td><%= apples[i].model %></td>
-        <td><%= apples[i].color %></td>
-        <td><%= apples[i].usage %></td>
-        <td><%= apples[i].price %></td>
-        <td><a href="/apples/delete/<%= apples[i]._id%>" class="btn btn-primary col-md-4" onclick="return confirm('Are you sure want to delete this phone from list?')"> Delete</a></td>
-    </tr>
-    <%}%>
-</table>
+    <div class="align-content-md-start col-lg-4">
+        <p><%= apples[i].model %> |
+        <%= apples[i].color %> |
+        <%= apples[i].usage %> |
+        <%= apples[i].price %></p>
+        <a href="/apples/edit/<%= apples[i]._id%>" class="btn btn-info col-md-2">Edit</a>
+        <a href="/apples/delete/<%= apples[i]._id%>" class="btn btn-danger col-md-3" onclick="return confirm('Are you sure want to delete this phone from list?')"> Delete</a>
+    </div>
+<%}%>
 </div>
+<a href="../apples/addphone" class="btn btn-warning col-md-3">Add a new Phone here</a>
 <% include ../shared/footer.ejs %>
