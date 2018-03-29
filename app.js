@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+let passport = require('passport');
+const session = require('express-session');
+const localStrategy = require('passport-local').Strategy;
 
 //added references
 let mongoose =require ('mongoose');
@@ -11,9 +14,9 @@ let mongoose =require ('mongoose');
 let config = require ('./config/globals');
 
 var index = require('./controllers/index');
-var users = require('./controllers/users');
 let apples = require('./controllers/apples');
 let samsungs = require('./controllers/samsungs');
+
 
 let app = express();
 
@@ -29,13 +32,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/apples', apples);
-app.use('/samsungs', samsungs);
+
 
 //DB Connection
 mongoose.connect(config.db);
+
+// passport configuration
+app.use(session({
+    secret: 'any string for salting here',
+    resave: true,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use('/', index);
+app.use('/apples', apples);
+app.use('/samsungs', samsungs);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

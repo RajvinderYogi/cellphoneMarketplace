@@ -1,0 +1,22 @@
+<% include shared/header.ejs %>
+
+<h1 class="text-center">Register</h1>
+
+<form method="post">
+    <fieldset class="form-group">
+        <input type="email" class="form-control col-md-12" name="username" id="username" required placeholder="Email"/>
+    </fieldset>
+    <fieldset class="form-group">
+        <input type="password" class="form-control col-md-12" name="password" id="password"  required placeholder="Password"/>
+    </fieldset>
+    <fieldset class="form-group">
+        <input type="password" class="form-control col-md-12" name="confirm" id="confirm" required placeholder="Confirm Password"/>
+    </fieldset>
+    <fieldset class="form-group">
+        <button class="btn btn-success offset-2 col-md-6">Register</button>
+        <hr />
+        Already have an account?  <a href="/login" title="Login">Login</a>
+    </fieldset>
+</form>
+
+<% include shared/footer.ejs %>
