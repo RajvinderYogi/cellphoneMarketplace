@@ -16,12 +16,12 @@ router.get('/', (req, res, next) => {
 });
 
 //GET: apples/addPhone
-router.get('/addphone', (req, res, next)=>{
-    res.render('apples/addphone', { title:'Add new Phone'});
+router.get('/addPhone', (req, res, next)=>{
+    res.render('apples/addPhone', { title:'Add new Phone'});
 });
 
 //POST: apples/addPhone
-router.post('/addphone', (req, res, next)=>{
+router.post('/addPhone', (req, res, next)=>{
     //save the new phone here
     Apple.create({
         model: req.body.model,
