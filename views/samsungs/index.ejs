@@ -1,17 +1,25 @@
 <% include ../shared/header.ejs %>
-
-<h1 class="modal-header"><%= title %></h1>
-<div class="jumbotron row">
+<h1 class="modal-header"><%= title %>
+    <%if (user){%>
+    <a href="samsungs/addPhone" class="btn btn-warning offset-4 col-md-2">Add a new Phone</a>
+    <%}%>
+</h1>
+<div class="row">
     <% for(var i=0; i<samsungs.length; i++) { %>
-    <div class="align-content-md-start col-lg-4">
-        <p><%= samsungs[i].model %> |
-            <%= samsungs[i].color %> |
-            <%= samsungs[i].usage %> |
-            <%= samsungs[i].price %></p>
-        <a href="/samsungs/edit/<%= samsungs[i]._id%>" class="btn btn-info col-md-2">Edit</a>
-        <a href="/samsungs/delete/<%= samsungs[i]._id%>" class="btn btn-danger col-md-3" onclick="return confirm('Are you sure want to delete this phone from list?')"> Delete</a>
+    <div class="col-lg-4">
+        <section class="phoneBox">
+            <img src="raj.jpg" width="150px" height="150px" />
+            <p><%= samsungs[i].model %> |
+                <%= samsungs[i].color %> |
+                <%= samsungs[i].usage %> |
+                $<%= samsungs[i].price %> |</p>
+        </section>
+        <%if (user){%>
+        <a href="/apples/edit/<%= samsungs[i]._id%>" class="btn btn-info offset-2 col-md-2">Edit</a>
+        <a href="/apples/delete/<%= samsungs[i]._id%>" class="btn btn-danger offset-1 col-md-3" onclick="return confirm('Are you sure want to delete this phone from list?')"> Delete</a>
+        <%}%>
+        <hr>
     </div>
     <%}%>
 </div>
-<a href="/samsungs/addPhone" class="btn btn-warning col-md-3">Add a new Phone here</a>
 <% include ../shared/footer.ejs %>

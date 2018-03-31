@@ -10,10 +10,22 @@ form {
   margin: 0 auto;
   width:350px;
 }
+p{
+  text-align: center;
+  margin-top: 5px;
+}
+img{
+  margin-left: 80px;
+}
 .msg{
   border-radius: 10px;
   margin-left: 30px;
   margin-bottom: 10px;
   margin-top: 10px;
   padding-top: 10px;
+}
+.phoneBox{
+  border: 1px dotted #e4606d;
+  padding: 15px 15px;
+  margin-bottom: 10px;
 }

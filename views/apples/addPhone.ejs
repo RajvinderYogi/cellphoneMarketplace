@@ -1,6 +1,6 @@
 <% include ../shared/header.ejs%>
 <h1 class="text-center">Add phone to the list</h1>
-<form action="../apples/addphone" method="post" class="col-md-6">
+<form action="../apples/addphone" enctype="multipart/form-data" method="post" class="col-md-6">
     <fieldset class="form-group">
         <input name="model" class="form-control col-md-12" placeholder="Model">
     </fieldset>
@@ -22,6 +22,9 @@
             <input type="number" min="0" max="2500" name="price" class="form-control col-md-12" placeholder="Price"/>
         </div>
     </fieldset>
+    <!--<fieldset class="form-group">-->
+        <!--<input type="file" name="color" class="form-control col-md-12" placeholder="Color">-->
+    <!--</fieldset>-->
     <button class="offset-2 btn btn-primary col-md-2">Save</button>
     <button type="reset" class="offset-1 btn btn-danger col-md-2">Reset</button>
 </form>

@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let Apple = require('../models/apple');
+let  globalFunction =require('../config/globalFunction');
 
 //GET: apple/index
 router.get('/', (req, res, next) => {
@@ -10,18 +11,18 @@ router.get('/', (req, res, next) => {
             console.log(err);
         }
         else {
-            res.render('apples/index', {title:"Apple Phones",apples:apples});
+            res.render('apples/index', {title:"Apple Phones",apples:apples, user:req.user});
         }
     });
 });
 
 //GET: apples/addPhone
-router.get('/addPhone', (req, res, next)=>{
-    res.render('apples/addPhone', { title:'Add new Phone'});
+router.get('/addPhone', globalFunction.SignedIn,(req, res, next)=>{
+    res.render('apples/addPhone', { title:'Add new Phone', user: req.user});
 });
 
 //POST: apples/addPhone
-router.post('/addPhone', (req, res, next)=>{
+router.post('/addPhone', globalFunction.SignedIn,(req, res, next)=>{
     //save the new phone here
     Apple.create({
         model: req.body.model,
@@ -38,8 +39,8 @@ router.post('/addPhone', (req, res, next)=>{
     });
 });
 
-//GET: Delete record
-router.get('/delete/:_id', (req, res, next) =>{
+//GET: Delete
+router.get('/delete/:_id', globalFunction.SignedIn,(req, res, next) =>{
     let _id= req.params._id;
 
     Apple.remove({_id: _id}, (err) =>{
@@ -52,25 +53,22 @@ router.get('/delete/:_id', (req, res, next) =>{
     });
 });
 
-//GET: Edit
-router.get('/edit/:_id', (req, res, next)=>{
+//GET: /apples/edit
+router.get('/edit/:_id', globalFunction.SignedIn,(req, res, next)=>{
     let _id= req.params._id;
     Apple.findById(_id, (err, apples)=>{
         if(err){
             console.log(err);
         }
         else{
-            res.render('apples/edit', {
-                title:'Update the ad',
-                apples: apples,
-            });
+            res.render('apples/edit', {title:'Update the ad', apples: apples, user: req.user});
         }
     });
 
 });
 
 //POST: /apples/edit
-router.post('/edit/:_id', (req, res, next)=>{
+router.post('/edit/:_id', globalFunction.SignedIn,(req, res, next)=>{
     let _id = req.params._id;
 
     Apple.update({_id:_id},

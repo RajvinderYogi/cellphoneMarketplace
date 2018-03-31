@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let Samsung = require('../models/samsung');
+let globalFunction = require('../config/globalFunction')
 
 //GET: index
 router.get('/', (req, res, next) => {
@@ -10,18 +11,18 @@ router.get('/', (req, res, next) => {
             console.log(err);
         }
         else {
-            res.render('samsungs/index', {title:"Samsung Phones", samsungs:samsungs});
+            res.render('samsungs/index', {title:"Samsung Phones", samsungs:samsungs, user:req.user});
         }
     });
 });
 
 //GET: addPhone
-router.get('/addPhone', (req, res, next)=>{
-    res.render('samsungs/addPhone', { title:'Add new Phone'});
+router.get('/addPhone', globalFunction.SignedIn,(req, res, next)=>{
+    res.render('samsungs/addPhone', { title:'Add new Phone', user: req.user});
 });
 
-//POST: apples/addPhone
-router.post('/addPhone', (req, res, next)=>{
+//POST: Samsungs/addPhone
+router.post('/addPhone', globalFunction.SignedIn,(req, res, next)=>{
     //save the new phone here
     Samsung.create({
         model: req.body.model,
@@ -38,7 +39,7 @@ router.post('/addPhone', (req, res, next)=>{
     });
 });
 //GET: Delete
-router.get('/delete/:_id', (req, res, next) =>{
+router.get('/delete/:_id', globalFunction.SignedIn,(req, res, next) =>{
     let _id= req.params._id;
 
     Samsung.remove({_id: _id}, (err) =>{
@@ -52,22 +53,19 @@ router.get('/delete/:_id', (req, res, next) =>{
 });
 
 //GET: Edit
-router.get('/edit/:_id', (req, res, next)=>{
+router.get('/edit/:_id', globalFunction.SignedIn,(req, res, next)=>{
     let _id= req.params._id;
     Samsung.findById(_id, (err, samsungs)=>{
         if(err){
             console.log(err);
         }
         else{
-            res.render('samsungs/edit', {
-                title:'Update the ad',
-                samsungs: samsungs,
-            });
+            res.render('samsungs/edit', {title:'Update the ad', samsungs: samsungs, user: req.user});
         }
     });
 });
-//POST: Samsung/edit
-router.post('/edit/:_id', (req, res, next)=>{
+//POST: Samsungs/edit
+router.post('/edit/:_id', globalFunction.SignedIn,(req, res, next)=>{
     let _id = req.params._id;
 
     Samsung.update({_id:_id},
@@ -81,7 +79,7 @@ router.post('/edit/:_id', (req, res, next)=>{
                 console.log(err);
             }
             else {
-                res.redirect('/samsungs')
+                res.redirect('/s')
             }
         });
 });

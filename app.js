@@ -12,8 +12,9 @@ let mongoose =require ('mongoose');
 let config = require ('./config/globals');
 
 let passport = require('passport');
-const session = require('express-session');
-const localStrategy = require('passport-local').Strategy;
+let session = require('express-session');
+let localStrategy = require('passport-local').Strategy;
+let GStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var index = require('./controllers/index');
 let apples = require('./controllers/apples');
@@ -53,6 +54,21 @@ const User = require('./models/user');
 
 passport.use(User.createStrategy());
 
+
+passport.use(new GStrategy({
+        clientID: config.google.googleClientId,
+        clientSecret: config.google.googleClientSecret,
+        callbackURL: config.google.googleCallbackUrl,
+        profileFields:['id', 'emails']
+    },
+    (accessToken, refreshToken, profile, done) => {
+        User.findOrCreate({
+            googleId: profile.id,
+            username: profile.emails[0].value
+        },(err, user)=>{
+            return done (err, user)});
+    }
+));
 // session management for users
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
