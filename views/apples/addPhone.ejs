@@ -2,13 +2,13 @@
 <h1 class="text-center">Add phone to the list</h1>
 <form action="../apples/addphone" enctype="multipart/form-data" method="post" class="col-md-6">
     <fieldset class="form-group">
-        <input name="model" class="form-control col-md-12" placeholder="Model">
+        <input name="model" class="form-control col-md-12" placeholder="Model" required>
     </fieldset>
     <fieldset class="form-group">
         <input name="color" class="form-control col-md-12" placeholder="Color">
     </fieldset>
     <fieldset class="form-group">
-        <select class="custom-select col-md-12" name="usage">
+        <select class="custom-select col-md-12" name="usage" required>
             <option disabled selected>Usage</option>
             <option value="new">New</option>
             <option value="Used">Used</option>
@@ -19,7 +19,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">$</span>
             </div>
-            <input type="number" min="0" max="2500" name="price" class="form-control col-md-12" placeholder="Price"/>
+            <input type="number" min="0" max="2500" name="price" class="form-control col-md-12" placeholder="Price" required/>
         </div>
     </fieldset>
     <!--<fieldset class="form-group">-->

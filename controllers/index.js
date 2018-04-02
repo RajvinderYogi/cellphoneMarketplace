@@ -6,7 +6,7 @@ let User = require('../models/user');
 
 /* GET: /homepage */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Cell Phone Marketplace', message:'Sell and view the cell phones here', user: req.user });
+  res.render('index', { title: 'Cell Phone Marketplace',user: req.user });
 });
 
 //GET: / register

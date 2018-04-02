@@ -2,7 +2,22 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+.mainHeading{
+  margin-bottom: 50px;
+}
+.apple{
+  background-color: #11ddb3;
+  color: white;
+  margin-top: 15px;
+  border-radius: 15px;
+}
+.apple:hover{
+  background-color: #13dd35;
+  color: white;
+}
+img:hover{
+  transform: scale(1.2,1.2);
+}
 a {
   color: #00B7FF;
 }
@@ -12,7 +27,7 @@ form {
 }
 p{
   text-align: center;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 img{
   margin-left: 80px;
@@ -28,4 +43,7 @@ img{
   border: 1px dotted #e4606d;
   padding: 15px 15px;
   margin-bottom: 10px;
+}
+footer{
+  background-color: skyblue;
 }
