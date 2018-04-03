@@ -4,7 +4,7 @@ let passport =require('passport');
 let User = require('../models/user');
 
 
-/* GET: /homepage */
+//GET: /homepage
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Cell Phone Marketplace',user: req.user });
 });

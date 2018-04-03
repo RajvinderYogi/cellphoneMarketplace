@@ -18,6 +18,26 @@ body {
 img:hover{
   transform: scale(1.2,1.2);
 }
+nav{
+  background-color: skyblue;
+}
+.navbar-brand{
+  border-radius: 5px;
+}
+nav a{
+  font-size: 1.4em;
+  color: whitesmoke !important;
+}
+nav ul li a:hover{
+  background-color: #11ddb3;
+  color: #ffffff;
+
+}
+
+nav ul li{
+  margin-left: 60%;
+}
+
 a {
   color: #00B7FF;
 }
