@@ -104,7 +104,7 @@ passport.use(new LinkedInStrategy({
 passport.use(new InstagramStrategy({
         clientID: config.instagram.instaclientID,
         clientSecret: config.instagram.instaclientSecret,
-        callbackURL: config.instagram.instacallbackURL
+        callbackURL: config.instagram.instaCallbackUrl
     },
     function(accessToken, refreshToken, profile, done) {
 
