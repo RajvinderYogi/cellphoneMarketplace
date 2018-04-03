@@ -15,6 +15,8 @@ let passport = require('passport');
 let session = require('express-session');
 let localStrategy = require('passport-local').Strategy;
 let GStrategy = require('passport-google-oauth').OAuth2Strategy;
+var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
+var InstagramStrategy = require('passport-instagram').Strategy;
 
 var index = require('./controllers/index');
 let apples = require('./controllers/apples');
@@ -69,6 +71,65 @@ passport.use(new GStrategy({
             return done (err, user)});
     }
 ));
+
+passport.use(new LinkedInStrategy({
+    clientID: config.linkedin.linkedinClientId,
+    clientSecret: config.linkedin.linkedinClientSecret,
+    callbackURL: config.linkedin.linkedinCallbackUrl,
+},  function(token, tokenSecret, profile, done) {
+
+        var searchQuery = {
+            username: profile.displayName
+        };
+
+        var updates = {
+            username: profile.displayName,
+        };
+
+        var options = {
+            upsert: true
+        };
+
+        // update the user if s/he exists or add a new user
+        User.findOneAndUpdate(searchQuery, updates, options, function(err, user) {
+            if(err) {
+                return done(err);
+            } else {
+                return done(null, user);
+            }
+        });
+    }
+
+));
+passport.use(new InstagramStrategy({
+        clientID: config.instagram.instaclientID,
+        clientSecret: config.instagram.instaclientSecret,
+        callbackURL: config.instagram.instacallbackURL
+    },
+    function(accessToken, refreshToken, profile, done) {
+
+        var searchQuery = {
+            username: profile.displayName
+        };
+
+        var updates = {
+            username: profile.displayName,
+        };
+
+        var options = {
+            upsert: true
+        };
+
+        // update the user if s/he exists or add a new user
+        User.findOneAndUpdate(searchQuery, updates, options, function(err, user) {
+            if(err) {
+                return done(err);
+            } else {
+                return done(null, user);
+            }
+        });
+    }
+));
 // session management for users
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -76,7 +137,6 @@ passport.deserializeUser(User.deserializeUser());
 app.use('/', index);
 app.use('/apples', apples);
 app.use('/samsungs', samsungs);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

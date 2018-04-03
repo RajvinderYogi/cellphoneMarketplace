@@ -3,6 +3,7 @@ let router = express.Router();
 let Apple = require('../models/apple');
 let  globalFunction =require('../config/globalFunction');
 
+
 //GET: apple/index
 router.get('/', (req, res, next) => {
     //get data from db

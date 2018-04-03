@@ -15,11 +15,14 @@ body {
   background-color: #13dd35;
   color: white;
 }
-img:hover{
+images:hover{
   transform: scale(1.2,1.2);
 }
 a {
   color: #00B7FF;
+}
+.signBtn{
+  margin-bottom: 15px;
 }
 form {
   margin: 0 auto;

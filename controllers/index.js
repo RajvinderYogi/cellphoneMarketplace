@@ -67,4 +67,22 @@ router.get('/google/callback', passport.authenticate('google', {
         res.redirect('/apples');
     }
 );
+
+router.get('/linkedin',passport.authenticate('linkedin'));
+
+router.get('/linkedin/callback',
+    passport.authenticate('linkedin', { failureRedirect: '/signin' }),
+    function(req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/apples');
+    });
+
+router.get('/instagram',passport.authenticate('instagram'));
+
+router.get('/instagram/callback',
+    passport.authenticate('instagram', { failureRedirect: '/' }),
+    function(req, res) {
+        res.redirect('/apples');
+    });
+
 module.exports = router;
