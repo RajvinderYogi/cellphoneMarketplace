@@ -14,7 +14,7 @@ module.exports= {
     },
     instagram: {
         instaclientID: '791fd739980d497a8842e11d8cbb0815',
-        instaclientSecret: 'ac32526320734f129841a45ba84ed5c6',
+        instaclientSecret: '64439b9eea5e4c408f409e564c6d7338',
         // instaCallbackUrl: 'http://localhost:3000/instagram/callback',
         instaCallbackUrl:'https://cellphonemarketplace.herokuapp.com/insagram/callback'
 
