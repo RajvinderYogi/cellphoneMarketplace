@@ -68,8 +68,10 @@ router.get('/google/callback', passport.authenticate('google', {
     }
 );
 
+//GET: / linkedin
 router.get('/linkedin',passport.authenticate('linkedin'));
 
+//GET: /linkedin/callback
 router.get('/linkedin/callback',
     passport.authenticate('linkedin', { failureRedirect: '/signin' }),
     function(req, res) {
@@ -77,8 +79,10 @@ router.get('/linkedin/callback',
         res.redirect('/apples');
     });
 
+//GET: / instagram
 router.get('/instagram',passport.authenticate('instagram'));
 
+//GET: /instagram/callback
 router.get('/instagram/callback',
     passport.authenticate('instagram', { failureRedirect: '/' }),
     function(req, res) {

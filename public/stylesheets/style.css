@@ -15,7 +15,7 @@ body {
   background-color: #13dd35;
   color: white;
 }
-images:hover{
+img:hover{
   transform: scale(1.2,1.2);
 }
 a {
@@ -43,7 +43,7 @@ img{
   padding-top: 10px;
 }
 .phoneBox{
-  border: 1px dotted #e4606d;
+  /*border: 1px dotted #e4606d;*/
   padding: 15px 15px;
   margin-bottom: 10px;
 }
