@@ -15,8 +15,8 @@
                 $<%= samsungs[i].price %> |</p>
         </section>
         <%if (user){%>
-        <a href="/apples/edit/<%= samsungs[i]._id%>" class="btn btn-info offset-2 col-md-2">Edit</a>
-        <a href="/apples/delete/<%= samsungs[i]._id%>" class="btn btn-danger offset-1 col-md-3" onclick="return confirm('Are you sure want to delete this phone from list?')"> Delete</a>
+        <a href="/samsungs/edit/<%= samsungs[i]._id%>" class="btn btn-info offset-2 col-md-2">Edit</a>
+        <a href="/samsungs/delete/<%= samsungs[i]._id%>" class="btn btn-danger offset-1 col-md-3" onclick="return confirm('Are you sure want to delete this phone from list?')"> Delete</a>
         <%}%>
         <hr>
     </div>

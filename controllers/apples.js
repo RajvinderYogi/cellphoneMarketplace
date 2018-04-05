@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
             console.log(err);
         }
         else {
-            res.render('apples/index', {title:"Apple Phones",apples:apples, user:req.user});
+            res.render('apples/index', {title:"Apple Phones", apples:apples, user:req.user});
         }
     });
 });
@@ -30,7 +30,7 @@ router.post('/addPhone', globalFunction.SignedIn,(req, res, next)=>{
         color: req.body.color,
         usage:req.body.usage,
         price:req.body.price
-    }, (err, apple)=>{
+    }, (err, apples)=>{
         if (err){
             console.log(err);
         }

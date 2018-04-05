@@ -16,7 +16,6 @@ let appleSchema = new mongoose.Schema({
     },
     price:{
        type: Number,
-        required:"You ust enter the price of this phone"
     }
 });
 //make public

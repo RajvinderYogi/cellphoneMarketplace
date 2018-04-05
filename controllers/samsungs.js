@@ -79,7 +79,7 @@ router.post('/edit/:_id', globalFunction.SignedIn,(req, res, next)=>{
                 console.log(err);
             }
             else {
-                res.redirect('/s')
+                res.redirect('/samsungs')
             }
         });
 });
